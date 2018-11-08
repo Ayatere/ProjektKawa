@@ -5,16 +5,16 @@ from stirrer import Stirrer
 from heater import Heater
 import time
 
-tanks = [Tank(500, False, False, Valve(10, 2)),
-         Tank(1000, False, Heater(100), False),
-         Tank(1000, Stirrer(10), False, Valve(50, 4)),
-         Tank(1000, False, False, False),
-         Tank(500, False, False, False)]
-pumps = [Pump(30, [1, 2]),
-         Pump(20, [3, 2])]
-dTime = time.time()
+tanks = [Tank(500, False, False, Valve(10, 2)),  # coffee
+         Tank(1000, False, Heater(100), False),  # water
+         Tank(1000, Stirrer(10), False, Valve(50, 4)),  # main tank
+         Tank(1000, False, False, False),  # milk
+         Tank(500, False, False, False)]  # cup
+pumps = [Pump(30, [1, 2]),  # water -> main tank
+         Pump(20, [3, 2])]  # milk -> main tank
 
-while True:
+dTime = time.time()
+while True:  # coffee input
     try:
         amount = int(input("Write how much coffee do you want(ml)"))
     except ValueError:
@@ -26,7 +26,7 @@ while True:
             continue
         break
 
-while True:
+while True:  # milk input
     try:
         milk = int(input("Write how much milk in coffee do you want(ml) - can't excede previous number"))
     except ValueError:
@@ -38,9 +38,8 @@ while True:
             continue
         break
 
-while True:
-
-    if time.time() - dTime > 0.1:
+while True:  # main loop
+    if time.time() - dTime > 0.1:  # 10Hz
         dTime = time.time()
         print("working")
     time.sleep(0.01)
