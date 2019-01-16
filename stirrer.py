@@ -12,4 +12,8 @@ class Stirrer:
             else:
                 print("Stirrer was already deactivated")
             return
+        if value:
+            print("Starting stirrer")
+        else:
+            print("Stopping stirrer")
         self.activated = value

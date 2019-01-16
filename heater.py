@@ -12,4 +12,8 @@ class Heater:
             else:
                 print("Heater was already deactivated")
             return
+        if value:
+            print("Starting heater")
+        else:
+            print("Stopping heater")
         self.activated = value

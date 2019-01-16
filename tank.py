@@ -10,9 +10,9 @@ class Tank:
 
     def __init__(self, capacity, stirrer, heater, valve):
         self.capacity = capacity
-        if stirrer is Stirrer:
+        if isinstance(stirrer, Stirrer):
             self.stirrer = stirrer
-        if heater is Heater:
+        if isinstance(heater, Heater):
             self.heater = heater
-        if valve is Valve:
+        if isinstance(valve, Valve):
             self.valve = valve

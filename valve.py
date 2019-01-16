@@ -12,4 +12,8 @@ class Valve:
                 print("Valve was already opened")
             else:
                 print("Valve was already closed")
+        if value:
+            print("Opening valve")
+        else:
+            print("Closing valve")
         self.open = value
